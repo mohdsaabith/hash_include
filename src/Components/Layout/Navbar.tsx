@@ -3,7 +3,11 @@ import React from "react";
 import { useRouter } from "next/router";
 import { MenuOutlined } from "@ant-design/icons/lib/icons";
 import { Link } from "react-scroll";
-import manafeLogo from "../../public/images/manafe.svg";
+
+import { CiSearch } from "react-icons/ci";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
+
 import Image from "next/image";
 
 export default function Navbar() {
@@ -33,126 +37,53 @@ export default function Navbar() {
   return (
     <div className="">
       <div
-        className={`bg-white h-[4rem] fixed w-full lg:py-4 py-2 z-[50] md:px-[10rem] sm:px-[2rem] px-[1rem]  transition-colors flex justify-between items-center  duration-300 scroll-smooth ${
+        className={`bg-white h-[4rem] fixed w-full lg:py-4 py-2 z-[50] md:px-[5rem] sm:px-[2rem] px-[1rem]  transition-colors flex justify-between items-center  duration-300 scroll-smooth ${
           colorChange && "shadow-lg"
         }`}
       >
         <div className="flex justify-between items-center w-full">
           <div className="w-[20%]">
-            <Link
-              to="home"
-              spy={true}
-              smooth={true}
-              duration={500}
-              onClick={() => {
-                (router.pathname === "/aboutUs" ||
-                  router.pathname === "/services") &&
-                  router?.push("/#home");
-              }}
-            >
-              <Image
-                src={manafeLogo}
-                className="w-[6rem] mr-[2rem] cursor-pointer"
-                alt=""
-              />
-            </Link>
+            <div className="text-xl font-bold">CYLEN.</div>
           </div>
-          <div className="w-[80%]">
+          <div className="w-[60%]">
             <ul className="lg:flex lg:gap-10 justify-end  items-center hidden pr-[7rem]">
               <li>
-                <Link
-                  to={"home"}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  onClick={() => {
-                    (router.pathname === "/aboutUs" ||
-                      router.pathname === "/services") &&
-                      router?.push("/#home");
-                  }}
-                  activeClass="text-[#1bbc9d]"
-                  className="cursor-pointer active:text-[#1bbc9d]  hover:text-[#1bbc9d] font-semibold focus:cursor-auto"
-                >
-                  <p>Home</p>
-                </Link>
+                <div className="font-semibold">Home</div>
               </li>
 
               <li>
-                <Link
-                  activeClass="text-[#1bbc9d]"
-                  to={""}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  onClick={() => {
-                    router?.push("/services");
-                  }}
-                  className={
-                    router.pathname == "/services"
-                      ? "text-[#1bbc9d] font-semibold cursor-pointer"
-                      : "cursor-pointer font-semibold hover:text-[#1bbc9d]"
-                  }
-                >
-                  <p> Services</p>
-                </Link>
+                <div className="font-semibold">Offers</div>
               </li>
 
               <li>
-                <Link
-                  to={"clients"}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  offset={-30}
-                  onClick={() => {
-                    (router.pathname === "/aboutUs" ||
-                      router.pathname === "/services") &&
-                      router?.push("/#clients");
-                  }}
-                  activeClass="text-[#1bbc9d]"
-                  className="cursor-pointer active:text-[#1bbc9d] font-semibold hover:text-[#1bbc9d]"
-                >
-                  <p>Clients</p>
-                </Link>
+                <div className="font-semibold text-base flex justify-center items-center">
+                  Products <MdKeyboardArrowDown />
+                </div>
               </li>
 
               <li>
-                <Link
-                  to={""}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  className={
-                    router.pathname == "/aboutUs"
-                      ? "text-[#1bbc9d] font-semibold cursor-pointer"
-                      : "cursor-pointer font-semibold hover:text-[#1bbc9d]"
-                  }
-                  activeClass="text-[#1bbc9d]"
-                  onClick={() => router?.push("/aboutUs")}
-                >
-                  <p> About Us</p>
-                </Link>
+                <div className="font-semibold">New Arrivals</div>
               </li>
 
               <li>
-                <Link
-                  to={"contact"}
-                  spy={true}
-                  smooth={true}
-                  offset={-30}
-                  duration={500}
-                  onClick={() => {
-                    (router.pathname === "/aboutUs" ||
-                      router.pathname === "/services") &&
-                      router?.push("/#contact");
-                  }}
-                  activeClass="text-[#1bbc9d]"
-                  className=" active:text-[#1bbc9d] cursor-pointer hover:text-[#1bbc9d] font-semibold "
-                >
-                  <p> Contact Us</p>
-                </Link>
+                <div className="font-semibold">Sales</div>
               </li>
             </ul>
+          </div>
+          <div className="w-[20%] flex justify-center items-center gap-[1rem]">
+            <div className="font-semibold flex justify-center items-center gap-1">
+              <CiSearch />
+              Search
+            </div>
+            <div className="border-r border-black h-[1rem]"></div>
+            <div className="font-semibold flex justify-center items-center gap-1">
+              Carts <HiOutlineShoppingBag />
+            </div>
+            <div className="font-semibold">
+              <Button className="border-2 border-black font-semibold rounded-full flex justify-center items-center">
+                Sign Up
+              </Button>
+            </div>
           </div>
         </div>
         {/* <div className="lg:flex lg:gap-10  items-center hidden">
